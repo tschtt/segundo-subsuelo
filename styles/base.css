@@ -1,0 +1,12 @@
+
+* {
+  /* outline: 1px solid green; */
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: ui-monospace, monospace;
+}
