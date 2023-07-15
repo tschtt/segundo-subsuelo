@@ -24,6 +24,14 @@ function on_init () {
 }
 
 function on_draw () {
+  if(canvas.width !== canvas.offsetWidth) {
+    canvas.width = canvas.offsetWidth;
+  }
+
+  if(canvas.height !== canvas.offsetHeight) {
+    canvas.height = canvas.offsetHeight;
+  }
+
   ctx.strokeStyle = 'hsla(120, 73%, 47%, .5)'
   
   ctx.fillStyle = 'hsla(0, 0%, 0%, .0018)'
