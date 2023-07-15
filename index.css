@@ -28,7 +28,7 @@ body {
   border-width: var(--border-width);
   margin: 1rem;
   padding: 2rem;
-  min-height: calc(100vh - 2rem);
+  min-height: calc(100dvh - 2rem);
 }
 
 h1 {
