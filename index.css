@@ -6,7 +6,7 @@
 :root {
   --color-text: hsla(120, 73%, 47%, 1);
   --color-background: hsla(0, 0%, 0%, 1);
-  --color-background-transparent: hsla(0, 0%, 0%, .5);
+  --color-background-transparent: hsla(0, 0%, 0%, .25);
   --border-width: 1px;
 }
 
@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 3rem;
 }
 
 .logo {
@@ -43,6 +43,7 @@ body {
   grid-template-rows: repeat(4, 1fr);
   width: 100%;
   max-width: 50svh;
+  mix-blend-mode: screen;
   /* animation: rotate 60s linear; */
 }
 
@@ -61,7 +62,6 @@ body {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   border-radius: 100%;
-  background-color: hsla(0, 0%, 0%, .1);
   z-index: -1;
 }
 
@@ -71,9 +71,6 @@ body {
   border-bottom: 4px solid white;
   border-top: 2px dashed white;
   border-right: 2px dashed white;
-  background-color: hsla(0, 0%, 0%, .25);
-  /* background-color: var(--color-background-transparent); */
-  /* filter: invert(100%); */
 }
 
 .stair:nth-child(01) { grid-column: 2; grid-row: 1; }
@@ -132,6 +129,12 @@ article .content {
 
 @media (max-width:600px) {
   article .content {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  article .date {
     display: none;
   }
 }
