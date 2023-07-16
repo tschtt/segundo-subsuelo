@@ -36,27 +36,6 @@ body {
   place-self: center;
   max-height: 80dvh;
   max-width: 400px;
-  
-  animation-duration: 60s;
-  animation-name: rotate;
-  animation-iteration-count: infinite;
-  animation-direction: reverse;
-  animation-timing-function: linear;
-}
-
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
-
-  to {
-    rotate: 360deg;
-  }
-}
-
-
-.logo:hover {
-  rotate: 60deg;
 }
 
 h1 {
