@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>segundo subsuelo</title>
+</head>
+<body>
+    <header>
+        <h1>segundo subsuelo</h1>
+        <nav>
+            <ul>
+                <li><a href="/links">libros</a></li>
+                <li><a href="/links">musica</a></li>
+                <li><a href="/links">links</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        const ws = new WebSocket("ws://localhost:3001");
+        ws.onmessage = (event) => {
+            if (event.data === "refresh") {
+                window.location.reload();
+            }
+        };
+    </script>
+</body>
+</html>
