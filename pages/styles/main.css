@@ -1,0 +1,32 @@
+* {
+    outline: 1px dashed green;
+}
+
+:root {
+
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width: 80ch;
+    margin-inline: auto;
+    padding: 1rem;
+}
+
+/* layout */
+
+.main-navigation {
+    padding-block: 1rem;
+}
+
+.main-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+/* utilities */
+
+.stack > * + * {
+    margin-top: 1rem;
+}
