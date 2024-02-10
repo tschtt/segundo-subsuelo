@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "run-p watch:* serve",
-    "watch:build": "nodemon -e html,css,js --watch pages ./index.js",
+    "watch:build": "nodemon -e md,html,css,js --ignore output ./index.js",
     "watch:output": "node ./watcher.js",
     "serve": "http-server ./output",
     "build": "node index.js"
@@ -18,6 +18,7 @@
     "chokidar": "^3.6.0",
     "fast-glob": "^3.3.2",
     "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.8",
     "http-server": "^14.1.1",
     "markdown-it": "^14.0.0",
     "nodemon": "^3.0.3",
