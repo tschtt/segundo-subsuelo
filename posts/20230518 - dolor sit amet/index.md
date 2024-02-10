@@ -2,7 +2,7 @@
 title: dolor sit amet
 permalink: /2023/05/18/dolor-sit-amet/
 date: '2023-05-18'
-tags: [posts, libros]
+tags: [posts, musica]
 intro: >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consequat faucibus arcu. Donec elementum purus id efficitur lacinia. Quisque eget lacinia arcu. Suspendisse sed ipsum luctus, feugiat nisi ut, congue sapien. Aliquam id arcu tincidunt, semper tellus id, dictum dolor. Nunc molestie, lectus luctus facilisis tempor, sapien lacus tempus lacus, a pellentesque magna dolor id ante. Vivamus pretium, enim condimentum gravida pharetra, felis neque vestibulum ligula, at vehicula risus odio non nisi. Donec sit amet tincidunt leo, eget euismod magna. Morbi luctus vulputate purus congue mattis. Sed fermentum fringilla elit, eget commodo nibh laoreet vitae.
 ---

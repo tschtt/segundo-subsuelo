@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "run-p watch:* serve",
-    "watch:build": "nodemon -e md,html,css,js --ignore output ./index.js",
+    "watch:build": "nodemon -e md,html,css,js,handlebars --ignore output ./index.js",
     "watch:output": "node ./watcher.js",
     "serve": "http-server ./output",
     "build": "node index.js"

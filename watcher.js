@@ -5,10 +5,12 @@ const wss = new WebSocketServer({ port: 3001 });
 const wssCallbacks = [];
 
 chokidar.watch("./output").on("all", (event) => {
-    if (event === "change") {
-        console.log('change')
-        wssCallbacks.forEach((cb) => cb());
-    }
+    setTimeout(() => {
+        if (event === "change") {
+            console.log('change')
+            wssCallbacks.forEach((cb) => cb());
+        }        
+    }, 200);
 });
   
 wss.on("connection", (ws) => {

@@ -1,0 +1,22 @@
+---
+title: segundo subsuelo
+---
+<header>
+    <h1>segundo subsuelo</h1>
+    <nav class="main-navigation">
+        <ul role="list">
+            {{#each tags}}
+                <li><a href="/{{@key}}/">{{@key}}</a></li>
+            {{/each}}
+        </ul>
+    </nav>
+</header>
+<main class="stack">
+    <h2>ultimos posts</h2>
+    {{#each tags.posts}}
+        <article>
+            <h3><a href="{{permalink}}">{{title}}</a></h3>
+            <p>{{intro}}</p>
+        </article>
+    {{/each}}
+</main>

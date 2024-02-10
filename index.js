@@ -75,7 +75,36 @@ async function build () {
     console.log('\nPAGES')
     for (const path of await glob('./pages/**/*')) {
         console.log(`building page at: "${path}"`, )
-        fs.cpSync(path, path.replace('pages', 'output'))
+
+        const name = path.split('/')[2].split('.')[0]
+        const extension = path.split('.').slice(2).join('.')
+
+        if(extension === 'handlebars') {
+            let page = {}
+            let content = ''
+
+            content = fs.readFileSync(path, 'utf-8');
+            content = matter(content)
+
+            if(!content.data.title)     throw new Error(`missing title in page at: "${path}"`)
+            
+            page.title = content.data.title;
+            page.layout = content.data.layout || 'base';
+            page.content = Handlebars.compile(content.content)({ ...page, tags });
+         
+            // build page
+            (() => {
+                const template = layouts[page.layout]
+                const data = template(page)
+                const path = `./output/${name}.html`
+        
+                fs.writeFileSync(path, data)
+            })();
+        }
+        else {
+            fs.cpSync(path, path.replace('pages', 'output'))
+        }
+        
     }
     
     console.log('build done!')
