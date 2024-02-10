@@ -1,0 +1,19 @@
+---
+title: segundo subsuelo
+---
+<main class="stack">
+    <h1>libros</h1>
+    <nav class="main-navigation">
+        <ul role="list">
+            {{#each tags.libros}}
+                <li><a href="{{permalink}}">{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </nav>
+    {{#each tags.libros}}
+        <article>
+            <h3><a href="{{permalink}}">{{title}}</a></h3>
+            <p>{{intro}}</p>
+        </article>
+    {{/each}}
+</main>
