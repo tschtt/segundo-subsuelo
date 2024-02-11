@@ -44,7 +44,7 @@ async function build () {
         post.date = content.data.date
         post.tags = content.data.tags || []
         post.intro = content.data.intro || ''
-        post.layout = content.data.layout || 'base'
+        post.layout = content.data.layout || 'post'
         post.content = md.render(content.content)
 
         // add post to tags
@@ -92,7 +92,7 @@ async function build () {
                 const page = {}
 
                 page.title = content.data.title.replaceAll('{{tag}}', tag);
-                page.layout = content.data.layout || 'base';
+                page.layout = content.data.layout || 'page';
                 page.permalink = path.replace('./pages', '').replace('[tag]', tag).replace('index.html', '')
                 page.content = Handlebars.compile(content.content)({ ...page, tags, tag, items });    
 
@@ -121,7 +121,7 @@ async function build () {
             if(!content.data.title)     throw new Error(`missing title in page at: "${path}"`)
 
             page.title = content.data.title;
-            page.layout = content.data.layout || 'base';
+            page.layout = content.data.layout || 'page';
             page.permalink = path.replace('./pages', '').replace('index.html', '')
             page.content = Handlebars.compile(content.content)({ ...page, tags });
 
