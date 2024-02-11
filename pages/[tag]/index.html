@@ -1,16 +1,16 @@
 ---
-title: segundo subsuelo
+title: segundo subsuelo | {{tag}}
 ---
 <main class="stack">
-    <h1>libros</h1>
+    <h1>{{tag}}</h1>
     <nav class="main-navigation">
         <ul role="list">
-            {{#each tags.libros}}
+            {{#each items}}
                 <li><a href="{{permalink}}">{{title}}</a></li>
             {{/each}}
         </ul>
     </nav>
-    {{#each tags.libros}}
+    {{#each items}}
         <article>
             <h3><a href="{{permalink}}">{{title}}</a></h3>
             <p>{{intro}}</p>

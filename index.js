@@ -76,11 +76,41 @@ async function build () {
     for (const path of await glob('./pages/**/*')) {
         console.log(`building: "${path}"`, )
 
-        const name = path.replace('./pages', '').split('.')[0]
-        const folder = name.split('/').slice(0, -1).join('/')
+        const folder = path.split('/').slice(0, -1).join('/')
         const extension = path.split('.').slice(2).join('.')
 
-        if(extension === 'handlebars') {
+        if(path === './pages/[tag]/index.html') {
+            let content = ''
+
+            content = fs.readFileSync(path, 'utf-8');
+            content = matter(content)
+
+            if(!content.data.title)     throw new Error(`missing title in page at: "${path}"`)
+
+            for (const [tag, items] of Object.entries(tags)) {
+                const page = {}
+
+                page.title = content.data.title.replaceAll('{{tag}}', tag);
+                page.layout = content.data.layout || 'base';
+                page.permalink = path.replace('./pages', '').replace('[tag]', tag).replace('index.html', '')
+                page.content = Handlebars.compile(content.content)({ ...page, tags, tag, items });    
+
+                // build page
+                const template = layouts[page.layout]
+                const data = template(page)
+
+                if(folder && !fs.existsSync(`./output${page.permalink}`)) {
+                    fs.mkdirSync(`./output${page.permalink}`, { recursive: true })
+                }
+                fs.writeFileSync(`./output${page.permalink}index.html`, data)
+            }
+        }
+        else 
+        if(extension === 'html') {
+            if(!path.endsWith('/index.html')) {
+                throw new Error(`each page must be named index`)
+            }
+            
             let page = {}
             let content = ''
 
@@ -91,18 +121,18 @@ async function build () {
 
             page.title = content.data.title;
             page.layout = content.data.layout || 'base';
+            page.permalink = path.replace('./pages', '').replace('index.html', '')
             page.content = Handlebars.compile(content.content)({ ...page, tags });
 
             // build page
             (() => {
                 const template = layouts[page.layout]
                 const data = template(page)
-                const path = `./output/${name}.html`
 
-                if(folder && !fs.existsSync(`./output/${folder}`)) {
-                    fs.mkdirSync(`./output/${folder}`, { recursive: true })
+                if(folder && !fs.existsSync(`./output${page.permalink}`)) {
+                    fs.mkdirSync(`./output${page.permalink}`, { recursive: true })
                 }
-                fs.writeFileSync(path, data)
+                fs.writeFileSync(`./output${page.permalink}index.html`, data)
             })();
         }
         else {
@@ -110,7 +140,7 @@ async function build () {
         }
 
     }
-
+    
     // copy static folder
     console.log('\nSTATIC')
     for (const path of await glob('./static/**/*')) {

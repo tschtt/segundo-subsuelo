@@ -7,7 +7,6 @@ const wssCallbacks = [];
 chokidar.watch("./output").on("all", (event) => {
     setTimeout(() => {
         if (event === "change") {
-            console.log('change')
             wssCallbacks.forEach((cb) => cb());
         }        
     }, 200);
