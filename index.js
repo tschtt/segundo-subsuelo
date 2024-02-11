@@ -88,6 +88,7 @@ async function build () {
             if(!content.data.title)     throw new Error(`missing title in page at: "${path}"`)
 
             for (const [tag, items] of Object.entries(tags)) {
+                console.log(`building tag page: "${path.replace('[tag]', tag)}"`, )
                 const page = {}
 
                 page.title = content.data.title.replaceAll('{{tag}}', tag);
