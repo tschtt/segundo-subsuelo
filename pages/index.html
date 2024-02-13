@@ -1,24 +1,96 @@
 ---
 title: segundo subsuelo
 permalink: /
-layout: main
 ---
-<header>
-    <h1>segundo subsuelo</h1>
-    <nav class="main-navigation">
+<main class="stack">
+    <header class="header">
+        <h1 class="hidden">segundo subsuelo</h1>
+        <div class="logo">
+            <span class="stair"></span>
+            <span class="stair"></span>
+            <span class="stair"></span>
+            <span class="stair"></span>
+            <span class="stair"></span>
+            <span class="stair"></span>
+            <span class="circle"></span>
+        </div>
+    </header>
+    <nav class="main-navigation bg-transparent">
         <ul role="list">
             {{#each tags}}
                 <li><a href="/{{@key}}/">{{@key}}</a></li>
             {{/each}}
         </ul>
     </nav>
-</header>
-<main class="stack">
     <h2>ultimos posts</h2>
     {{#each tags.posts}}
         <article>
             <h3><a href="{{permalink}}">{{title}}</a></h3>
+            {{#if image}}
+                <img src="{{permalink}}{{image}}" alt="">
+            {{/if}}
             <p>{{intro}}</p>
         </article>
     {{/each}}
 </main>
+<canvas id="canvas"></canvas>
+<script>
+    /**
+    * @type {HTMLCanvasElement}
+    */
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d')
+    const header = document.querySelector('.header')
+    const logo = document.querySelector('.logo')
+
+
+    function on_init () {
+        on_draw()
+    }
+
+    function on_draw () {
+        // resize canvas
+        if(canvas.width !== canvas.offsetWidth) canvas.width = canvas.offsetWidth;
+        if(canvas.height !== canvas.offsetHeight) canvas.height = canvas.offsetHeight;
+
+        const expand_rate = 1;
+        const logo_width = logo.offsetWidth
+        const header_height = header.offsetHeight
+
+        console.log(logo.getBoundingClientRect())
+        const logo_pos = logo.getBoundingClientRect()
+
+        ctx.beginPath();
+        ctx.lineWidth = 10
+        ctx.strokeStyle = 'hsla(120, 73%, 47%, .5)'
+        ctx.fillStyle = 'hsla(120, 73%, 47%, .5)'
+        ctx.roundRect(
+            logo_pos.left + window.pageXOffset,
+            logo_pos.top + window.pageYOffset,
+            logo_width,
+            logo_width,
+            1000
+        )
+        ctx.stroke()
+            
+        // expand outwards
+        ctx.drawImage(
+            canvas, 
+            (expand_rate / 2) * -1,
+            (expand_rate / 2) * -1,
+            canvas.width + expand_rate,
+            canvas.height + expand_rate,
+        )
+        
+        // blur & hue rotation
+        ctx.filter = "blur(1px) hue-rotate(.5deg)";
+
+        // limit framerate to ~30fps
+        setTimeout(() => {
+            requestAnimationFrame(on_draw)
+        }, 33);
+    }
+
+
+    window.addEventListener('load', on_init)
+</script>
