@@ -1,0 +1,19 @@
+{
+  "name": "segundo-subsuelo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "Santiago Taschetta",
+  "license": "ISC",
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.8",
+    "markdown-it": "^14.1.0"
+  }
+}
