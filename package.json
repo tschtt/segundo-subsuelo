@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "node --watch build.js",
+    "build": "node build.js",
+    "serve": "node serve.js"
   },
   "keywords": [],
   "author": "Santiago Taschetta",

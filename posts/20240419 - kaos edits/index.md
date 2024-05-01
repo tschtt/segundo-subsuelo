@@ -5,6 +5,10 @@ date: '2024-04-19'
 tags: ['edits']
 ---
 
+# Kaos edits
+
+*Viernes 19 de Abril, 2024*
+
 Le vengo mandando a Ivan algunos edits que tenia hechos
 por si quiere usarlos como covers o algo asi.
 

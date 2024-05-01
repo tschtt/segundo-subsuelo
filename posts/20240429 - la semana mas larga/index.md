@@ -1,9 +1,13 @@
 ---
-title: 'La semana mas larga del año'
-permalink: '/2024/04/29/la-semana-mas-larga-del-año/'
+title: 'La semana mas larga'
+permalink: '/2024/04/29/la-semana-mas-larga/'
 date: '2024-04-29'
 tags: ['diario']
 ---
+
+# La semana mas larga del año
+
+*Lunes 29 de Abril, 2024*
 
 Esta creo que fue verdaderamente mi semana mas larga de lo que va del año...
 
