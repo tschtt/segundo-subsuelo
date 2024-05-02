@@ -1,9 +1,10 @@
 import { glob, readFile, cp, readdir, writeFile } from 'node:fs/promises'
+import * as sass from 'sass'
 import matter from 'gray-matter'
 import markdownit from 'markdown-it'
 import Handlebars from 'handlebars'
 
-const md = markdownit()
+const md = markdownit({ html: true, linkify: true, typographer: true })
 
 // layouts
 
@@ -54,13 +55,13 @@ for await (const page_path of glob('./posts/**/*.md')) {
     }
 }
 
+// pages
+
 for await (const page_path of glob('./pages/**/*.html')) {
     const page_content = await readFile(page_path, 'utf-8')
     const page_matter = matter(page_content)
     
     if (!page_matter.data.layout) page_matter.data.layout = 'page'
-    
-    console.log(posts)
     
     page_matter.content = Handlebars.compile(page_matter.content)({ posts })
     
@@ -69,3 +70,8 @@ for await (const page_path of glob('./pages/**/*.html')) {
 
     await writeFile(page_path_dest, page_build)
 }
+
+// styles
+
+const styles = sass.compile('./styles/index.scss')
+await writeFile('./build/styles.css', styles.css)

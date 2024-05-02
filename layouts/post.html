@@ -3,11 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
     <title>{{data.title}}</title>
 </head>
 <body>
-    <main>
+    <header>
+        <a href="/">segundo subsuelo</a>
+    </header>
+    <main class="stack">
         {{{content}}}
     </main>
+    <dialog class="image-dialog" id="dialog">
+        <button autofocus>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="25" height="25">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>                  
+        </button>
+        <img src="" alt="" width="500" height="500">
+    </dialog>
+    <script>
+        /** @type {HTMLDialogElement} */
+        const dialog = document.querySelector('#dialog')
+
+        /** @type {HTMLImageElement} */
+        const dialogImg = document.querySelector('#dialog > img')
+
+        /** @type {HTMLButtonElement} */
+        const dialogBtn = document.querySelector('#dialog > button')
+
+
+        // dialog.showModal()
+
+        document.addEventListener('click', (event) => {
+            const img = event.target.closest('.img-viewable')
+            if(!img) return;
+            const source = img.src
+            dialogImg.src = source
+            dialog.showModal()
+        })
+
+        dialogBtn.addEventListener('click', (event) => {
+            dialog.close();
+        })
+    </script>
 </body>
 </html>

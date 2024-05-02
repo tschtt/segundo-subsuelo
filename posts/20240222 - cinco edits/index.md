@@ -11,12 +11,12 @@ tags: ['edits']
 
 Cinco edits que hice en unas horas, despues de mucho tiempo sin hacer nada.
 
-![](2024022203.png)
-
-![](2024022205.png)
-
-![](2024022209.png)
-
-![](2024022210.png)
-
-![](2024022211.png)
+<div class="full-view-width">
+    <div class="gallery">
+        <img class="img-viewable" src="2024022203.png" alt="">
+        <img class="img-viewable" src="2024022205.png" alt="">
+        <img class="img-viewable" src="2024022209.png" alt="">
+        <img class="img-viewable" src="2024022210.png" alt="">
+        <img class="img-viewable" src="2024022211.png" alt="">
+    </div>
+</div>

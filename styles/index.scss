@@ -1,0 +1,90 @@
+@use 'reset';
+@use 'composables';
+
+// * { outline: 1px dashed green; }
+
+body {
+    position: relative;
+    font-family: monospace;
+
+    > header {
+        padding: .5rem;
+        border-bottom: 2px solid black;
+    }
+}
+
+main {
+    background-color: white;
+    max-width: 80ch;
+    margin-inline: auto;
+    min-height: 100%;
+    padding: 1rem;
+}
+
+blockquote {
+    border-left: 2px solid black;
+    padding-left: .75rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding-inline: 1rem;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+img {
+    border-radius: 10px;
+}
+
+dialog {
+    padding: 0;
+    margin: auto;
+    border: none;
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    :focus {
+        outline: none;
+        border: none;
+    }
+}
+
+::backdrop {
+    background-color: black;
+    opacity: 0.75;
+}
+
+.img-viewable {
+    cursor: pointer;
+}
+
+.image-dialog {
+    position: relative;
+    width: min(80vh, 80vw);
+    box-shadow: 0 0 10px 3px hsla(0, 55%, 69%, 0.5), 0 0 15px 5px hsla(0, 0%, 100%, 0.5);
+    border-radius: 10px;
+    position: fixed;
+
+    > img {
+        width: 100%;
+        height: auto;
+    }
+    
+    > button {
+        background-color: hsla(0, 0%, 0%, .5);
+        position: absolute;
+        top: .5rem;
+        left: .5rem;
+        color: white;
+        padding: .25rem;
+        border-radius: 10px;
+    }
+}

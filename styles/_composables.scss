@@ -1,0 +1,10 @@
+
+.stack > * + * {
+    margin-top: 1rem;
+}
+
+.full-view-width {
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+}
