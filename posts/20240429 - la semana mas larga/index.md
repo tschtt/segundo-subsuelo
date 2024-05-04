@@ -1,5 +1,7 @@
 ---
 title: 'La semana mas larga'
+subtitle: '¿Cuanto cuenta sentirse vivo?'
+cover: 2024042500.png
 permalink: '/2024/04/29/la-semana-mas-larga/'
 date: '2024-04-29'
 tags: ['diario']

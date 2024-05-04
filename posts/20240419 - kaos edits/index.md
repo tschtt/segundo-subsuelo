@@ -1,5 +1,9 @@
 ---
 title: 'Kaos edits'
+subtitle: 
+    再次，永不停止，<br>
+    永不停止
+cover: '2024041904.png'
 permalink: '/2024/04/19/kaos-edits/'
 date: '2024-04-19'
 tags: ['edits']

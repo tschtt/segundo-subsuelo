@@ -28,11 +28,14 @@ for await (const page_path of glob('./posts/**/*.md')) {
     const page_matter = matter(page_markdown)
 
     if (!page_matter.data.title)     throw new Error(`Missing frontmatter title on page "${page_path}"`)
+    if (!page_matter.data.subtitle)     throw new Error(`Missing frontmatter subtitle on page "${page_path}"`)
+    if (!page_matter.data.cover)     throw new Error(`Missing frontmatter cover on page "${page_path}"`)
     if (!page_matter.data.permalink) throw new Error(`Missing frontmatter permalink on page "${page_path}"`)
     if (!page_matter.data.date)      throw new Error(`Missing frontmatter date on page "${page_path}"`)
     if (!page_matter.data.tags)      throw new Error(`Missing frontmatter tags on page "${page_path}"`)
 
     if (!page_matter.data.layout) page_matter.data.layout = 'post'
+    if (page_matter.excerpt) page_matter.data.excerpt = page_matter.excerpt
     
     copyPostFolder: {
         const page_folder_source = page_path.replace('index.md', '')

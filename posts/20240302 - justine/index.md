@@ -1,5 +1,10 @@
 ---
-title: 'Lawrence Durrell, Justine'
+title: Justine
+subtitle: 
+    Esta intimidad no debe ir mas lejos, <br>
+    pues hemos agotado ya <br>
+    todas sus posibilidades en la imaginacion.
+cover: cover.png
 permalink: '/2024/03/02/justine/'
 date: '2024-03-02'
 tags: [libros]

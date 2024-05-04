@@ -1,11 +1,15 @@
 ---
-title: 'Mariana Enriquez. Porque demasiado no es suficiente'
+title: 'Demasiado no es suficiente'
+subtitle: 
+    Les damos amor, no dinero. <br>
+    Nuestro amor barato.
 permalink: '/2024/05/01/porque-demasiado-no-es-suficiente/'
+cover: cover.png
 date: '2024-05-01'
 tags: [libros]
 ---
 
-# Mariana Enriquez. Porque demasiado no es suficiente
+# Porque demasiado no es suficiente
 
 *Miercoles 1 de Mayo, 2024*
 

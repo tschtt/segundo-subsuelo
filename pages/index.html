@@ -2,11 +2,29 @@
 title: 'segundo subsuelo'
 ---
 
-<main class="stack">
+<main class="main-posts stack">
     <h1>segundo subsuelo</h1>
-    <ul>
+    <section class="section-posts">
         {{#each posts}}
-            <li><a href="{{this.permalink}}">{{this.title}}</a></li>
+            <article class="article article-post" data-url="{{this.permalink}}">
+                <ul class="post-tags" role="list">
+                    {{#each this.tags}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <p class="post-date">{{this.date}}</p>
+                <img src="{{this.permalink}}{{this.cover}}" alt="">
+                <h2><a href="{{this.permalink}}">{{this.title}}</a></h2>
+                <p>{{{this.subtitle}}}</p>
+            </article>
         {{/each}}
-    </ul>
+    </section>
 </main>
+<script>
+    document.addEventListener('click', (event) => {
+        /** @type {HTMLDivElement} */
+        const element = event.target.closest('.article > *')
+        if(!element) return
+        document.location.href = element.parentElement.dataset.url
+    })
+</script>

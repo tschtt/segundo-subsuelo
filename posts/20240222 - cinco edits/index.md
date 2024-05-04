@@ -1,5 +1,7 @@
 ---
 title: 'Cinco edits'
+subtitle: 'nada mas que eso'
+cover: '2024022203.png'
 permalink: '/2024/02/22/cinco-edits/'
 date: '2024-02-22'
 tags: ['edits']

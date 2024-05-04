@@ -15,6 +15,7 @@ body {
 
 main {
     background-color: white;
+    width: max-content;
     max-width: 80ch;
     margin-inline: auto;
     min-height: 100%;
@@ -36,7 +37,7 @@ blockquote {
 }
 
 img {
-    border-radius: 10px;
+    // border-radius: 10px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
@@ -87,5 +88,67 @@ button {
         color: white;
         padding: .25rem;
         border-radius: 10px;
+    }
+}
+
+.main-posts {
+    h1 {
+        text-align: center;
+    }
+}
+
+
+.section-posts {
+    > * + * {
+        margin-top: 2rem;
+    }
+}
+
+.section-posts {
+    > * {
+        padding: 1rem;
+    }
+    > :nth-child(even) {
+        border-top: 4px solid black;
+        border-left: 4px solid black;
+    }
+    > :nth-child(odd) {
+        border-top: 4px solid black;
+        border-right: 4px solid black;
+        padding-top: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.article-post {
+    // padding: 1rem;
+    // background-color: hsla(0, 0%, 0%, .25);
+    // text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    
+    > * {
+        cursor: pointer;
+    }
+    
+    img {
+        width: 100%;
+        height: auto;
+        border: 4px solid black;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .post-date {
+        text-align: right;
+        font-style: italic;
+    }
+
+    .post-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: .25rem;
     }
 }
