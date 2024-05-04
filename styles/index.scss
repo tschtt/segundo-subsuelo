@@ -15,7 +15,6 @@ body {
 
 main {
     background-color: white;
-    width: max-content;
     max-width: 80ch;
     margin-inline: auto;
     min-height: 100%;
@@ -121,12 +120,11 @@ button {
 }
 
 .article-post {
-    // padding: 1rem;
-    // background-color: hsla(0, 0%, 0%, .25);
-    // text-align: center;
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    max-width: max-content;
+    margin-inline: auto;
     
     > * {
         cursor: pointer;
